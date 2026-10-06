@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tmc-regulatory-search-mcp"
+version = "0.1.0"
+description = "Read-only TMC regulatory search MCP server backed by Azure AI Search."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.0.0",
+    "requests>=2.31.0"
+]
+
+[project.scripts]
+tmc-regulatory-search = "tmc_regulatory_search.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tmc_regulatory_search"]
